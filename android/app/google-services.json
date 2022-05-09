@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "549679909748",
+    "project_id": "b2g-assignment",
+    "storage_bucket": "b2g-assignment.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:549679909748:android:8a2fda74f7305480e47a21",
+        "android_client_info": {
+          "package_name": "com.example.firebase_phone_auth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "549679909748-vssk25pvka5bavee07h9fn6815oov2ut.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.firebase_phone_auth",
+            "certificate_hash": "a4715d83dd945ee7192e41dbcef172d615d65273"
+          }
+        },
+        {
+          "client_id": "549679909748-hcc551saj0c1u65544sutictu6o1oo2i.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpkpuSAmwZzsfCuQR61MQa7l9lQzqXxm0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "549679909748-hcc551saj0c1u65544sutictu6o1oo2i.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
