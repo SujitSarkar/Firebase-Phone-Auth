@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_phone_auth/service.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pinput/pinput.dart';
@@ -108,7 +109,8 @@ class _HomePageState extends State<HomePage> {
             onPressed: (){
               if(_phoneNumber.text.isNotEmpty){
                 if(_phoneNumber.text.length==11){
-                  _phoneAuth();
+                  NotificationService.sendNotification();
+                  //_phoneAuth();
                 }else {showToast('Invalid phone number');}
               }else {showToast('Provide phone number');}
             },
@@ -150,11 +152,12 @@ class _HomePageState extends State<HomePage> {
 
       ///Auto Verification
       verificationCompleted: (PhoneAuthCredential credential) async {
-        await auth.signInWithCredential(credential).then((value) {
+        await auth.signInWithCredential(credential).then((value) async{
           if (value.user != null) {
             setState(()=>_loading=false);
             setState(()=> _otpVerified=true);
             showToast('Phone number verified');
+            await NotificationService.sendNotification();
           } else {
             setState(()=>_loading=false);
             showToast('Verification Failed! Try again');
@@ -193,11 +196,12 @@ class _HomePageState extends State<HomePage> {
         smsCode: otp);
     setState(()=>_loading=true);
     // Sign the user in (or link) with the credential
-    await FirebaseAuth.instance.signInWithCredential(credential).then((value) {
+    await FirebaseAuth.instance.signInWithCredential(credential).then((value) async{
       if (value.user != null) {
         setState(()=>_loading=false);
         setState(()=> _otpVerified=true);
         _timer!.cancel();
+        await NotificationService.sendNotification();
       } else {
         setState(()=>_loading=false);
         setState(()=> _otpVerified=false);
